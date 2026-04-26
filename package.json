@@ -1,0 +1,62 @@
+{
+  "name": "serotonin-api-docs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "prebuild": "node tools/build-llms-full.mjs",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "start:ru": "docusaurus start --locale ru"
+  },
+  "dependencies": {
+    "@docusaurus/core": "3.7.0",
+    "@docusaurus/plugin-svgr": "^3.7.0",
+    "@docusaurus/preset-classic": "3.7.0",
+    "@easyops-cn/docusaurus-search-local": "^0.55.1",
+    "@fontsource/electrolize": "^5.2.8",
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@mdx-js/react": "^3.0.0",
+    "clsx": "^2.0.0",
+    "framer-motion": "^11.18.2",
+    "lucide-react": "^0.469.0",
+    "prism-react-renderer": "^2.3.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "3.7.0",
+    "@docusaurus/types": "3.7.0",
+    "potrace": "^2.1.8",
+    "sharp": "^0.34.5",
+    "typescript": "~5.5.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0"
+  },
+  "overrides": {
+    "webpack": "5.95.0"
+  },
+  "resolutions": {
+    "webpack": "5.95.0"
+  }
+}

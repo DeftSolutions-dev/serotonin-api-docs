@@ -1,0 +1,62 @@
+.wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapDefault {
+  transform: rotate(-3deg);
+}
+
+.wrapHero {
+  transform: rotate(0deg);
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 18px rgba(0, 212, 170, 0.45));
+  opacity: 0.92;
+  z-index: 1;
+}
+
+.outline {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  overflow: visible;
+  filter:
+    drop-shadow(0 0 4px #ffffff)
+    drop-shadow(0 0 10px var(--ifm-color-primary-light))
+    drop-shadow(0 0 18px var(--ifm-color-primary));
+}
+
+.outline :global(path) {
+  fill: none;
+  stroke: #d4fff2;
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: draw 4.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.outline :global(path:nth-child(2n))   { animation-delay: 0.18s; }
+.outline :global(path:nth-child(3n))   { animation-delay: 0.36s; }
+.outline :global(path:nth-child(5n))   { animation-delay: 0.54s; }
+.outline :global(path:nth-child(7n))   { animation-delay: 0.72s; }
+.outline :global(path:nth-child(11n))  { animation-delay: 0.90s; }
+
+@keyframes draw {
+  0%   { stroke-dashoffset: 600; opacity: 0; }
+  10%  { opacity: 1; }
+  55%  { stroke-dashoffset: 0;   opacity: 1; }
+  85%  { stroke-dashoffset: 0;   opacity: 1; }
+  100% { stroke-dashoffset: -600; opacity: 0; }
+}

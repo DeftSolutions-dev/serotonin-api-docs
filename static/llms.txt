@@ -1,0 +1,23 @@
+# Serotonin Lua API
+
+> Runtime-verified reference for the Serotonin (external Roblox cheat for Windows) Lua sandbox. All signatures and behaviors verified by live introspection of build version-390ba09e7e944154 on 2026-04-26. Replaces the official docs which are 6+ months stale and miss whole libraries.
+
+Serotonin runs scripts on a sandboxed LuaJIT 2.0.3 runtime (which implements Lua 5.1). `_VERSION` reports `Lua 5.1` because that is the language version LuaJIT 2.0.3 implements. `jit`, `ffi`, `os`, `io`, `debug` are stripped from the sandbox. `string.buffer` and the `buffer` table are NOT bound (that API only landed in LuaJIT 2.1). The BitOp `bit` library is exposed (12 functions, verified live). Scripts go in `C:\Serotonin\scripts\*.lua` and are loaded via the Scripting tab. Compound API names have PascalCase + snake_case aliases; single-word names also have a lowercase form. Lifecycle is event-driven: register callbacks via `cheat.Register(event, fn)` for `paint` (alias `onPaint`) / `onUpdate` / `onSlowUpdate` / `shutdown` / `newPlace`.
+
+## Foundation
+- [Overview](docs/overview.md): Sandbox env, naming, lifecycle
+- [Crash triggers](docs/crash-triggers.md): Verified native-SEH crashers, never touch
+- [For LLMs](docs/llms.md): How to point your AI agent at this reference
+
+## Libraries (cheat-specific), published
+- [utility](docs/libraries/utility.md): Time, RNG, mouse, clipboard, screen projection (15 functions, 13 verified, 2 partial)
+- [memory](docs/libraries/memory.md): Read, Write, GetBase, Rebase, Scan, IsValid (6 functions, 5 verified, 1 partial)
+- [entity](docs/libraries/entity.md): Player cache (Name, Health, Velocity, BoundingBox, IsEnemy, ...), 8 bone accessors per player, GetTarget, GetParts, custom-model registry (9 functions, 5 verified, 4 partial)
+- [game](docs/libraries/game.md): GetService, GetFFlag, SetFFlag, SilentAim, PlayerWhitelist, plus pre-resolved fields (Workspace / Players / LocalPlayer / CameraPosition). Note: game.Lighting returns nil, use GetService instead. (5 functions, 4 verified, 1 partial)
+
+## Libraries, coming soon (see Roadmap)
+- draw, ui, cheat, http, file, audio, mouse, keyboard, websocket, bit, plus standard Lua
+
+## Optional
+- [Single-file consolidated](llms-full.md): Whole reference as one markdown, paste into LLM context for full coverage
+- [Roadmap](docs/roadmap.md): What's verified, what's pending, how to contribute

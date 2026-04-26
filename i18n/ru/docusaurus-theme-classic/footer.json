@@ -1,0 +1,13 @@
+{
+  "link.title.Docs":      { "message": "Документация" },
+  "link.title.Resources": { "message": "Ресурсы" },
+  "link.title.Project":   { "message": "Проект" },
+  "link.item.label.Overview":            { "message": "Обзор" },
+  "link.item.label.Crash triggers":      { "message": "Триггеры крашей" },
+  "link.item.label.Libraries":           { "message": "Библиотеки" },
+  "link.item.label.For LLMs (llms.txt)": { "message": "Для LLM (llms.txt)" },
+  "link.item.label.Methodology":         { "message": "Методология" },
+  "link.item.label.GitHub":              { "message": "GitHub" },
+  "link.item.label.Issues":              { "message": "Issues" },
+  "copyright": { "message": "MIT License. Неофициальный референс, не аффилирован с Serotonin." }
+}

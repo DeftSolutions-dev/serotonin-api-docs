@@ -1,0 +1,73 @@
+{
+  "theme.NotFound.title": { "message": "Страница не найдена" },
+  "theme.NotFound.p1":    { "message": "Мы не смогли найти то, что вы искали." },
+  "theme.NotFound.p2":    { "message": "Свяжитесь с владельцем сайта, который ссылался вам на исходный URL, и сообщите им, что их ссылка повреждена." },
+  "theme.docs.versionBadge.label": { "message": "Версия: {versionLabel}" },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "Один документ помечен тегом|{count} документов помечено тегом",
+    "description": "Pluralized label"
+  },
+  "theme.docs.tagDocListPageTitle": { "message": "{nDocsTagged} тегом «{tagName}»" },
+  "theme.docs.paginator.navigateToNextPage":     { "message": "Следующая страница" },
+  "theme.docs.paginator.navigateToPreviousPage": { "message": "Предыдущая страница" },
+  "theme.colorToggle.ariaLabel":                 { "message": "Переключить тему (текущая: {mode})" },
+  "theme.colorToggle.ariaLabel.mode.dark":       { "message": "тёмная" },
+  "theme.colorToggle.ariaLabel.mode.light":      { "message": "светлая" },
+  "theme.lastUpdated.atDate":                    { "message": " {date}" },
+  "theme.lastUpdated.byUser":                    { "message": " пользователем {user}" },
+  "theme.lastUpdated.lastUpdatedAtBy":           { "message": "Последнее обновление{atDate}{byUser}" },
+  "theme.navbar.mobileLanguageDropdown.label":   { "message": "Языки" },
+  "theme.SearchBar.label":                       { "message": "Поиск" },
+  "theme.SearchModal.searchBox.placeholder":     { "message": "Поиск по документации" },
+  "theme.SearchPage.documentsFound.plurals":     { "message": "Найден один документ|{count} документа найдены|{count} документов найдены" },
+  "theme.SearchPage.emptyResultsTitle":          { "message": "Ничего не найдено" },
+  "theme.SearchPage.fetchingNewResults":         { "message": "Загрузка новых результатов" },
+  "theme.SearchPage.inputLabel":                 { "message": "Поиск" },
+  "theme.SearchPage.inputPlaceholder":           { "message": "Введите поисковый запрос" },
+  "theme.SearchPage.noResultsText":              { "message": "Ничего не найдено по этому запросу" },
+  "theme.SearchPage.titleWithQuery":             { "message": "Результаты поиска для «{query}»" },
+  "theme.tags.tagsListLabel":                    { "message": "Теги:" },
+  "theme.tags.tagsPageTitle":                    { "message": "Теги" },
+  "theme.docs.sidebar.collapseButtonTitle":      { "message": "Свернуть боковую панель" },
+  "theme.docs.sidebar.collapseButtonAriaLabel":  { "message": "Свернуть боковую панель" },
+  "theme.docs.sidebar.expandButtonTitle":        { "message": "Развернуть боковую панель" },
+  "theme.docs.sidebar.expandButtonAriaLabel":    { "message": "Развернуть боковую панель" },
+  "theme.docs.toc.collapseButtonAriaLabel":      { "message": "Свернуть оглавление" },
+  "theme.docs.toc.collapseButtonText":           { "message": "Свернуть оглавление" },
+
+  "home.meta.desc":         { "message": "Live-verified Serotonin Lua API reference. Двуязычная EN/RU документация с runnable-примерами." },
+  "home.badge":             { "message": "Live-verified Lua API референс" },
+  "home.title.suffix":      { "message": "Lua API Reference" },
+  "home.tagline":           { "message": "Честная, полная, актуальная документация Lua-песочницы Serotonin. Каждая сигнатура roundtrip-нута через живой runtime." },
+
+  "home.cta.start":         { "message": "Начать" },
+  "home.cta.browse":        { "message": "Библиотеки" },
+  "home.cta.npm":           { "message": "npm + MCP" },
+
+  "home.stats.libs.value":      { "message": "14 библиотек" },
+  "home.stats.libs.label":      { "message": "cheat-side, каждая функция проверена" },
+  "home.stats.functions.value": { "message": "~150 функций" },
+  "home.stats.functions.label": { "message": "+ Instance / Part / Player / Vector3 / Color3" },
+  "home.stats.build.value":     { "message": "build 390ba09" },
+  "home.stats.build.label":     { "message": "проверено 2026-04-26" },
+
+  "home.features.heading":      { "message": "Что внутри" },
+
+  "home.feature.verified.title": { "message": "Live-verified" },
+  "home.feature.verified.desc":  { "message": "Каждая сигнатура подтверждена `pcall`-интроспекцией в живом Serotonin sandbox. Никаких слухов и старого changelog'а." },
+  "home.feature.cli.title":      { "message": "Ставится через npx" },
+  "home.feature.cli.desc":       { "message": "Drop-in stdio MCP-сервер опубликован как `mcp-serotonin-docs`. Установка в VSCode в один клик, в Codex в одну строку." },
+  "home.feature.crashers.title": { "message": "Краши задокументированы" },
+  "home.feature.crashers.desc":  { "message": "Каждый нативный крашер живёт на странице которая его экспонирует: `audio.PlaySound` non-WAV, `cheat.LoadString`, `_G`, недокументированные поля LocalPlayer." },
+  "home.feature.bilingual.title": { "message": "Двуязычная" },
+  "home.feature.bilingual.desc":  { "message": "Полные английская и русская версии бок о бок, синхронизированы. Имена функций и тексты ошибок остаются verbatim." },
+
+  "home.qs.title":          { "message": "Быстрый старт" },
+  "home.qs.desc":           { "message": "Положи этот файл в C:\\Serotonin\\scripts\\ и загрузи через вкладку Scripting." },
+
+  "home.status.label":      { "message": "Покрытие" },
+  "home.status.text":       { "message": "17 cheat-side библиотек (utility, memory, entity, game, cheat, bit, buffer, file, audio, mouse, keyboard, http, websocket, draw, ui, raknet) плюс Vector3 и Color3 userdata. Билд version-390ba09e7e944154, проверено 2026-04-26. Страницы публикуются только после того как каждая сигнатура roundtrip-нута через живой runtime." },
+
+  "home.author.title":      { "message": "О проекте" },
+  "home.author.text":       { "message": "Сделано DesirePro. Я не разработчик Serotonin. Официальная документация на serotonin-1.gitbook.io не обновлена под последние изменения runtime, поэтому этот сайт нужен чтобы коммьюнити не сидело без актуального референса. Каждая страница здесь - ручной аудит против реального чита, а не копия гитбука." }
+}

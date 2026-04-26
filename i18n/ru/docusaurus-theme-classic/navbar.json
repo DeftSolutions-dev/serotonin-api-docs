@@ -1,0 +1,5 @@
+{
+  "item.label.Docs":      { "message": "Документация" },
+  "item.label.npm + MCP": { "message": "npm + MCP" },
+  "item.label.GitHub":    { "message": "GitHub" }
+}

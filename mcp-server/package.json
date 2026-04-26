@@ -1,0 +1,51 @@
+{
+  "name": "mcp-serotonin-docs",
+  "version": "0.2.0",
+  "description": "MCP server that exposes the live-verified Serotonin Lua API reference (https://deftsolutions-dev.github.io/serotonin-api-docs/) as tools any MCP-capable agent can call.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "serotonin",
+    "roblox",
+    "lua",
+    "documentation"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "mcp-serotonin-docs": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeftSolutions-dev/serotonin-api-docs.git",
+    "directory": "mcp-server"
+  },
+  "homepage": "https://deftsolutions-dev.github.io/serotonin-api-docs/",
+  "bugs": {
+    "url": "https://github.com/DeftSolutions-dev/serotonin-api-docs/issues"
+  },
+  "author": "DeftSolutions-dev",
+  "license": "MIT"
+}
