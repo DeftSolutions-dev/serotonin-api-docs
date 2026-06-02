@@ -97,11 +97,19 @@ Reference наиболее полезен когда LLM-агент может �
 
 Обновление MCP-сервера в lockstep с audit'ом это то что сделало возможным использовать этот reference как living-документацию а не статичный snapshot.
 
+## Билд-апдейты после `version-390ba09e7e944154`
+
+Базовый audit прогнан на `version-390ba09e7e944154`. Дельты ниже перепроверены вживую против более поздних Roblox-билдов `version-9377ee10133e4be3`, `version-4b6315bf1f0a4dbb` и `version-460909c4fe904aae`, по тому же протоколу (live побеждает dump).
+
+- **Добавлена `game.IsFocused()`.** Новая cheat-side функция. Возвращает один `boolean` - держит ли окно Roblox input-фокус, не принимает аргументов, связана под всеми тремя формами `IsFocused` / `isFocused` / `is_focused`. Colon-форма `game:IsFocused()` тоже возвращает значение, потому что функция игнорирует `self`. Проверено `false` на протяжении 45-сэмплового поллинга пока окно было backgrounded. См. [game / IsFocused](./libraries/game#isfocused).
+- **Скорректирован формат возврата `LookVector` / `RightVector` / `UpVector`.** Перепроверено вживую: все три возвращают стандартный `Vector3` userdata с обычной `"%.6f, %.6f, %.6f"` `tostring`-формой и полной поверхностью `.X` / `.Y` / `.Z` / `.Magnitude` / `.Unit`. `cam.CFrame` остаётся `nil`. См. [Instance](./userdata/Instance).
+- **Explorer-фиксы это client-side.** Те же апдейты починили чтение `.Value` в Explorer, цвет "Header" выбранной ноды из Theme Editor и краш update-треда Explorer. Это изменения cheat-UI, а не Lua API surface, поэтому правок страниц за ними не следует.
+
 ## Финальное покрытие
 
 | Surface | Функций | Статус |
 |---|---|---|
-| 17 cheat-side либ | 130 канонических, 282 alias-формы | каждая функция probe'нута |
+| 17 cheat-side либ | 131 канонических, 285 alias-форм | каждая функция probe'нута |
 | `Vector3` userdata | 12 static funcs + 5 constants + 5 instance fields + arithmetic operators | full |
 | `Color3` userdata | 7 static funcs + 3 instance fields + 3 instance methods | full |
 | Page count | 18 content страниц × EN + RU = 36 опубликованных | |

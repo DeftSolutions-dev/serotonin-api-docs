@@ -97,11 +97,19 @@ The reference is most useful when an LLM agent can read it interactively against
 
 Updating the MCP server in lockstep with the audit is what made it possible to use this reference as living documentation rather than a static snapshot.
 
+## Build updates since `version-390ba09e7e944154`
+
+The base audit ran on `version-390ba09e7e944154`. The deltas below were re-probed live against the later Roblox builds `version-9377ee10133e4be3`, `version-4b6315bf1f0a4dbb` and `version-460909c4fe904aae`, following the same protocol (live wins over the dump).
+
+- **`game.IsFocused()` added.** New cheat-side function. Returns a single `boolean` for whether the Roblox window holds input focus, takes no arguments, and is bound under all three forms `IsFocused` / `isFocused` / `is_focused`. The colon form `game:IsFocused()` also returns the value because the function ignores `self`. Verified `false` across a 45-sample poll while the window was backgrounded. See [game / IsFocused](./libraries/game#isfocused).
+- **`LookVector` / `RightVector` / `UpVector` return format adjusted.** Re-probed live: all three return standard `Vector3` userdata with the usual `"%.6f, %.6f, %.6f"` `tostring` form and the full `.X` / `.Y` / `.Z` / `.Magnitude` / `.Unit` surface. `cam.CFrame` remains `nil`. See [Instance](./userdata/Instance).
+- **Explorer fixes are client-side.** The same updates fixed Explorer `.Value` reads, the selected-node Theme Editor "Header" color, and an Explorer update-thread crash. These are cheat-UI changes, not Lua API surface, so no page changes follow from them.
+
 ## Final coverage
 
 | Surface | Functions | Status |
 |---|---|---|
-| 17 cheat-side libraries | 130 canonical, 282 alias forms | every function probed |
+| 17 cheat-side libraries | 131 canonical, 285 alias forms | every function probed |
 | `Vector3` userdata | 12 static funcs + 5 constants + 5 instance fields + arithmetic operators | full |
 | `Color3` userdata | 7 static funcs + 3 instance fields + 3 instance methods | full |
 | Page count | 18 content pages × EN + RU = 36 published | |

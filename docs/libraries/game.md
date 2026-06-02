@@ -5,12 +5,12 @@ title: game
 
 # `game`
 
-Top-level entry point into the Roblox DataModel and a handful of cheat-side helpers (FFlag access, silent aim, player whitelist). 5 canonical functions plus a small set of pre-resolved fields.
+Top-level entry point into the Roblox DataModel and a handful of cheat-side helpers (FFlag access, silent aim, player whitelist, window focus). 6 canonical functions plus a small set of pre-resolved fields.
 
 | | |
 |---|---|
-| **Functions** | 5 (15 with aliases) |
-| **Verified live** | 3 of 5 (SetFFlag and SilentAim are partial: documented from dump, not executed for safety) |
+| **Functions** | 6 (18 with aliases) |
+| **Verified live** | 4 of 6 (SetFFlag and SilentAim are partial: documented from dump, not executed for safety) |
 | **Required event context** | none |
 | **Side effects** | `SetFFlag` mutates a client FFlag, `SilentAim` aims (and may shoot), `PlayerWhitelist` adds a name to the friendly list |
 
@@ -27,6 +27,7 @@ Top-level entry point into the Roblox DataModel and a handful of cheat-side help
 | [`SetFFlag`](#setfflag)             | `(name: string, value, type: string)` | write a Roblox FFlag, same type list as `GetFFlag` | <span className="status-badge partial">partial</span> |
 | [`SilentAim`](#silentaim)           | `(x: number, y: number)` | aim at a screen position, can trigger a shot | <span className="status-badge partial">partial</span> |
 | [`PlayerWhitelist`](#playerwhitelist) | `(name: string)` | add a player name to the cheat's friendly list | <span className="status-badge verified">verified</span> |
+| [`IsFocused`](#isfocused)             | `() → boolean` | whether the Roblox window currently holds input focus, takes no arguments | <span className="status-badge verified">verified</span> |
 
 ## `game.*` fields
 
@@ -163,6 +164,27 @@ game.PlayerWhitelist("MyFriendUserName")
 ```
 
 There is no documented `RemovePlayerWhitelist` companion. Once added, the entry persists for the script lifetime.
+
+---
+
+## `IsFocused`
+
+```lua
+game.IsFocused() → boolean
+```
+
+Reports whether the Roblox window currently holds input focus. Takes no arguments (extra arguments are ignored) and returns a single `boolean`.
+
+New in build `version-460909c4fe904aae`. Verified live: returned `false` across a 45-sample poll while the Roblox window was not the foreground application.
+
+All three forms are bound: `IsFocused` / `isFocused` / `is_focused`. This is the one `game.*` function where the colon form is also safe: `game:IsFocused()` returns the same `boolean` as `game.IsFocused()` because the function ignores `self`.
+
+```lua
+cheat.register("onUpdate", function()
+    if not game.IsFocused() then return end
+    -- skip input-driven logic while the user is not in the Roblox window
+end)
+```
 
 ---
 

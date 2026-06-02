@@ -427,6 +427,10 @@ Property reads return `nil` when the underlying class doesn't expose that field.
 Verified live: `cam.CFrame` returned `nil` on a real Camera. The cheat exposes the CFrame's components (`LookVector`, `RightVector`, `UpVector`, `Position`) but **not** the CFrame itself. To reconstruct orientation use the three direction vectors plus `Position`.
 :::
 
+:::note Return format re-verified on `version-460909c4fe904aae`
+The Serotonin client changelog lists a format adjustment for `LookVector` / `RightVector` / `UpVector`. Re-probed live on that build: all three return standard `Vector3` userdata, identical to every other vector property. `tostring` yields `"%.6f, %.6f, %.6f"` (a forward-facing camera prints `"-0.000000, -0.000000, -1.000000"`); `.X` / `.Y` / `.Z`, the lowercase `.x` / `.y` / `.z` aliases, `.Magnitude` and `.Unit` all resolve; numeric indexing (`v[1]`) returns `nil`. `cam.CFrame` is still `nil`.
+:::
+
 ---
 
 ## Patterns

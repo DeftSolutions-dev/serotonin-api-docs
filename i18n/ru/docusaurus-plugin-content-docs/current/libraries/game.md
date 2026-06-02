@@ -5,12 +5,12 @@ title: game
 
 # `game`
 
-Точка входа в Roblox DataModel плюс несколько cheat-side хелперов (FFlag-доступ, silent aim, player whitelist). 5 канонических функций плюс маленький набор pre-resolved полей.
+Точка входа в Roblox DataModel плюс несколько cheat-side хелперов (FFlag-доступ, silent aim, player whitelist, фокус окна). 6 канонических функций плюс маленький набор pre-resolved полей.
 
 | | |
 |---|---|
-| **Функций** | 5 (15 с алиасами) |
-| **Проверено вживую** | 3 из 5 (SetFFlag и SilentAim частично: задокументированы из dump, не выполнены ради безопасности) |
+| **Функций** | 6 (18 с алиасами) |
+| **Проверено вживую** | 4 из 6 (SetFFlag и SilentAim частично: задокументированы из dump, не выполнены ради безопасности) |
 | **Требуемый event** | нет |
 | **Сайд-эффекты** | `SetFFlag` мутирует client FFlag, `SilentAim` целится (и может выстрелить), `PlayerWhitelist` добавляет имя в friendly-список |
 
@@ -27,6 +27,7 @@ title: game
 | [`SetFFlag`](#setfflag)             | `(name: string, value, type: string)` | записать Roblox FFlag, тот же список типов что у `GetFFlag` | <span className="status-badge partial">частично</span> |
 | [`SilentAim`](#silentaim)           | `(x: number, y: number)` | прицелиться в screen-позицию, способна вызвать выстрел | <span className="status-badge partial">частично</span> |
 | [`PlayerWhitelist`](#playerwhitelist) | `(name: string)` | добавить player username в friendly-список чита | <span className="status-badge verified">проверено</span> |
+| [`IsFocused`](#isfocused)             | `() → boolean` | держит ли окно Roblox input-фокус сейчас, без аргументов | <span className="status-badge verified">проверено</span> |
 
 ## Поля `game.*`
 
@@ -163,6 +164,27 @@ game.PlayerWhitelist("MyFriendUserName")
 ```
 
 Документированного `RemovePlayerWhitelist`-аналога нет. Однажды добавленная запись живёт всё время жизни скрипта.
+
+---
+
+## `IsFocused`
+
+```lua
+game.IsFocused() → boolean
+```
+
+Сообщает, держит ли окно Roblox input-фокус сейчас. Не принимает аргументов (лишние игнорируются) и возвращает один `boolean`.
+
+Новая в билде `version-460909c4fe904aae`. Проверено вживую: вернула `false` на протяжении 45-сэмплового поллинга, пока окно Roblox не было foreground-приложением.
+
+Связаны все три формы: `IsFocused` / `isFocused` / `is_focused`. Это единственная `game.*`-функция где colon-форма тоже безопасна: `game:IsFocused()` возвращает тот же `boolean` что и `game.IsFocused()`, потому что функция игнорирует `self`.
+
+```lua
+cheat.register("onUpdate", function()
+    if not game.IsFocused() then return end
+    -- пропускаем input-логику пока пользователь не в окне Roblox
+end)
+```
 
 ---
 
