@@ -5,6 +5,10 @@ title: For tools and agents
 
 # Pull this reference into your tools
 
+:::note Environment
+This reference documents a standalone, sandboxed LuaJIT 2.0.3 environment with its own bindings. It is not the official Roblox/Luau API and not Roblox Studio: snippets here run only inside this sandbox and will not run in Roblox Studio. `jit` / `ffi` / `os` / `io` are stripped. Every signature is verified live against the runtime, not assumed from Roblox docs.
+:::
+
 Three different ways to ingest the docs, in order of how much glue code you have to write.
 
 | You want | Use this | Glue you write |
